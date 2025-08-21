@@ -49,7 +49,7 @@ export default function MovieDetailModal({ imdbID, open, onClose }) {
                 alt={movie.Title}
               />
               <div className="modal-details">
-                <p><strong>Year:</strong> {movie.Year}</p>
+                <p><strong>Release Year:</strong> {movie.Year}</p>
                 <p><strong>Genre:</strong> {movie.Genre}</p>
                 <p><strong>Runtime:</strong> {movie.Runtime}</p>
                 <p><strong>Director:</strong> {movie.Director}</p>
