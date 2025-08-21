@@ -55,6 +55,7 @@ movie-watchlist/
 │   │   └── WatchlistContext.jsx
 │   │
 │   ├── pages/
+│   │   ├── HomePage.jsx
 │   │   ├── SearchPage.jsx
 │   │   └── WatchlistPage.jsx
 │   │
