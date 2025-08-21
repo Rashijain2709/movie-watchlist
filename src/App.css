@@ -43,6 +43,7 @@ a {
 .navbar-title {
   font-size: 1.5rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .navbar-links {
@@ -245,6 +246,30 @@ input[type="text"],
   margin-bottom: 0.5rem;
 }
 
+/* ===== HomePage / Watchlist Status ===== */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.homepage-container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.homepage-container p {
+  font-size: 1.2rem;
+  color: var(--gray);
+}
+
 /* ===== Animations ===== */
 @keyframes pulse {
   0% { opacity: 1; }
@@ -255,6 +280,17 @@ input[type="text"],
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* ===== Modal Backdrop ===== */
@@ -340,16 +376,4 @@ input[type="text"],
 
 .modal-details {
   flex: 1;
-}
-
-/* ===== Animations ===== */
-@keyframes scaleIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
 }

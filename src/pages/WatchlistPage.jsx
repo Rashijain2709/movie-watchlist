@@ -1,8 +1,11 @@
 import MovieCard from "../components/MovieCard";
+import MovieDetailModal from "../components/MovieDetailModal";
+import { useState } from "react";
 import { useWatchlist } from "../context/WatchlistContext";
 
 export default function WatchlistPage() {
   const { watchlist } = useWatchlist();
+  const [openId, setOpenId] = useState(null);
 
   return (
     <div className="page-container">
@@ -18,8 +21,14 @@ export default function WatchlistPage() {
       ) : (
         <div className="movie-grid">
           {watchlist.map((m) => (
-            <MovieCard key={m.imdbID} movie={m} />
+            <MovieCard key={m.imdbID} movie={m} onOpen={setOpenId} />
           ))}
+
+          <MovieDetailModal
+            imdbID={openId}
+            open={Boolean(openId)}
+            onClose={() => setOpenId(null)}
+          />
         </div>
       )}
     </div>
