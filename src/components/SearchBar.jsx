@@ -1,4 +1,4 @@
-export default function SearchBar({ value, onChange, placeholder = "Search movies..." }) {
+export default function SearchBar({ value, onChange, placeholder = "Enter to Search Movies" }) {
   return (
     <input
       className="search-input"

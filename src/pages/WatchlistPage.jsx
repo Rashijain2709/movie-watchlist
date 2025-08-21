@@ -21,7 +21,12 @@ export default function WatchlistPage() {
       ) : (
         <div className="movie-grid">
           {watchlist.map((m) => (
-            <MovieCard key={m.imdbID} movie={m} onOpen={setOpenId} />
+            <MovieCard
+              key={m.imdbID}
+              movie={m}
+              onOpen={setOpenId}
+              hideAddButton={true}
+            />
           ))}
 
           <MovieDetailModal

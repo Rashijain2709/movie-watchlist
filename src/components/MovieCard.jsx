@@ -2,7 +2,7 @@ import { useWatchlist } from "../context/WatchlistContext";
 
 const FALLBACK_POSTER = "https://via.placeholder.com/300x445?text=No+Poster";
 
-export default function MovieCard({ movie, onOpen }) {
+export default function MovieCard({ movie, onOpen, hideAddButton = false }) {
   const { addMovie, removeMovie, inWatchlist } = useWatchlist();
   const isSaved = inWatchlist(movie.imdbID);
 
@@ -20,13 +20,15 @@ export default function MovieCard({ movie, onOpen }) {
         <p className="movie-card-year"><strong>Release Year:</strong> {movie.Year}</p>
 
         <div className="movie-card-buttons">
-          <button
-            className={`btn btn-green`}
-            onClick={() => (isSaved ? null : addMovie(movie))}
-            disabled={isSaved}
-          >
-            {isSaved ? "Added" : "Add to Watchlist"}
-          </button>
+          {!hideAddButton && (
+            <button
+              className={`btn btn-green`}
+              onClick={() => (isSaved ? null : addMovie(movie))}
+              disabled={isSaved}
+            >
+              {isSaved ? "Added" : "Add to Watchlist"}
+            </button>
+          )}
 
           <button
             className="btn btn-blue"

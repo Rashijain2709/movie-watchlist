@@ -23,7 +23,7 @@ export function WatchlistProvider({ children }) {
   const addMovie = (movie) => {
     setWatchlist((prev) => {
       if (prev.some((m) => m.imdbID === movie.imdbID)) {
-        alert("This movie is already in your watchlist!"); // ✅ duplicate feedback
+        alert("This movie is already in your watchlist!");
         return prev;
       }
       return [...prev, movie];
