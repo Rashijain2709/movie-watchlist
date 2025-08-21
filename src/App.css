@@ -134,19 +134,17 @@ input[type="text"],
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 4rem;
+  gap: 2rem;
   margin-top: 2rem;
   align-items: start;
   justify-items: center;
-  padding: 2%;
+  padding: 1%;
 }
 
-/* ===== Movie Card ===== */
-.movie-card,
-.movie-card-custom {
+/* ===== Movie Card Wrapper ===== */
+.movie-card-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: var(--white);
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
@@ -157,20 +155,20 @@ input[type="text"],
   max-width: 240px;
 }
 
-.movie-card:hover,
-.movie-card-custom:hover {
+.movie-card-wrapper:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.movie-card img,
-.movie-card-custom img {
+/* ===== Movie Poster ===== */
+.movie-card-poster {
   width: 100%;
   height: 330px;
   object-fit: cover;
 }
 
-.movie-card-content {
+/* ===== Movie Info Section ===== */
+.movie-card-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -178,7 +176,8 @@ input[type="text"],
   padding: 1rem;
 }
 
-.movie-title {
+/* ===== Movie Title ===== */
+.movie-card-title {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 0.25rem;
@@ -187,15 +186,14 @@ input[type="text"],
   text-overflow: ellipsis;
 }
 
-.movie-meta {
+/* ===== Movie Year ===== */
+.movie-card-year {
   font-size: 0.9rem;
   color: var(--gray);
-  margin-bottom: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
 }
 
+/* ===== Movie Buttons ===== */
 .movie-card-buttons {
   display: flex;
   gap: 0.5rem;
