@@ -26,34 +26,29 @@ export default function MovieDetailModal({ imdbID, open, onClose }) {
   if (!open) return null;
 
   return (
-    <div
-      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50"
-      onClick={onClose}
-    >
-      <div
-        className="bg-white max-w-2xl w-full rounded-2xl shadow-2xl overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex justify-between items-center bg-green-600 text-white p-4">
-          <h3 className="font-semibold">{movie?.Title || "Movie details"}</h3>
-          <button
-            className="px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600"
-            onClick={onClose}
-          >
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <h3>{movie?.Title || "Movie details"}</h3>
+          <button className="modal-close-btn" onClick={onClose}>
             Close
           </button>
         </div>
-        <div className="p-6">
+        <div className="modal-body">
           {loading && <p>Loading…</p>}
-          {error && <p className="text-red-600">{error}</p>}
+          {error && <p className="modal-error">{error}</p>}
           {movie && (
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="modal-content-grid">
               <img
-                className="w-full h-64 object-cover md:col-span-1 rounded-xl"
-                src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x445?text=No+Poster"}
+                className="modal-poster"
+                src={
+                  movie.Poster !== "N/A"
+                    ? movie.Poster
+                    : "https://via.placeholder.com/300x445?text=No+Poster"
+                }
                 alt={movie.Title}
               />
-              <div className="md:col-span-2 space-y-2">
+              <div className="modal-details">
                 <p><strong>Year:</strong> {movie.Year}</p>
                 <p><strong>Genre:</strong> {movie.Genre}</p>
                 <p><strong>Runtime:</strong> {movie.Runtime}</p>

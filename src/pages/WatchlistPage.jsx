@@ -1,6 +1,5 @@
 import MovieCard from "../components/MovieCard";
 import { useWatchlist } from "../context/WatchlistContext";
-import "../index.css"; // Import the CSS file
 
 export default function WatchlistPage() {
   const { watchlist } = useWatchlist();

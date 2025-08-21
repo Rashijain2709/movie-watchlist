@@ -1,0 +1,355 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+
+/* ===== Root Colors & Variables ===== */
+:root {
+  --primary: #032541;
+  --secondary: #21d07a;
+  --danger: #dc2626;
+  --info: #2563eb;
+  --white: #fff;
+  --light-gray: #f3f4f6;
+  --gray: #6b7280;
+}
+
+/* ===== Global ===== */
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+  color: var(--white);
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: var(--white);
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-links a:hover {
+  opacity: 0.8;
+}
+
+/* ===== Page Layout ===== */
+.page-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937;
+}
+
+/* ===== Search Bar ===== */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.search-bar-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+input[type="text"],
+.search-bar-container input {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.search-bar-container input:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(33, 208, 122, 0.3);
+  outline: none;
+}
+
+/* ===== Status Text ===== */
+.status-text {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.status-text.loading {
+  color: var(--secondary);
+  animation: pulse 1.5s infinite;
+}
+
+.status-text.error {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.status-text.empty {
+  color: var(--gray);
+}
+
+.status-text.total {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* ===== Movie Grid ===== */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 4rem; /* Balanced spacing between cards */
+  margin-top: 2rem;
+  align-items: start; /* Align cards at the top */
+  justify-items: center;
+  padding: 2%;
+}
+
+/* ===== Movie Card ===== */
+.movie-card,
+.movie-card-custom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  min-height: 430px; /* Force same card height on desktop */
+  width: 100%;
+  max-width: 240px;
+}
+
+.movie-card:hover,
+.movie-card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card img,
+.movie-card-custom img {
+  width: 100%;
+  height: 330px; /* fixed image height */
+  object-fit: cover;
+}
+
+.movie-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.movie-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  white-space: nowrap; /* keep title on one line */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-meta {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: auto; /* pushes buttons to bottom */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.movie-card-buttons button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.btn-green {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.btn-blue {
+  background-color: var(--info);
+  color: var(--white);
+}
+
+.btn-red {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+/* ===== Empty Watchlist ===== */
+.empty-watchlist {
+  text-align: center;
+  padding: 4rem;
+  border: 1px dashed #d1d5db;
+  border-radius: 0.75rem;
+  background-color: var(--light-gray);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.empty-watchlist p {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Animations ===== */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Modal Backdrop ===== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== Modal Container ===== */
+.modal-container {
+  background-color: var(--white);
+  border-radius: 0.75rem;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: scaleIn 0.3s ease;
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* ===== Modal Header ===== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* ===== Close Button ===== */
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--danger);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* ===== Modal Body ===== */
+.modal-body {
+  font-size: 1rem;
+}
+
+.modal-error {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+.modal-content-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.modal-poster {
+  max-width: 250px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.modal-details {
+  flex: 1;
+}
+
+/* ===== Animations ===== */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

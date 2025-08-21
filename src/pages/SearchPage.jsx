@@ -3,7 +3,6 @@ import SearchBar from "../components/SearchBar";
 import MovieCard from "../components/MovieCard";
 import MovieDetailModal from "../components/MovieDetailModal";
 import { searchMovies } from "../api/omdb";
-import "../index.css"; // Import the CSS file
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
