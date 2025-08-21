@@ -120,10 +120,8 @@ npm run dev
 - Select your repository and set the framework preset to Vite.
 
 - Add your environment variable in Vercel:
-
-Key: VITE_OMDB_API_KEY
-
-Value: your API key
+  - Key: `VITE_OMDB_API_KEY`
+  - Value: `your_api_key`
 
 - Click Deploy.
 
